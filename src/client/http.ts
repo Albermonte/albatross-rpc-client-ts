@@ -51,13 +51,15 @@ export type CallResult<Data, Metadata = undefined> = {
 export class HttpClient {
   private url: URL
   private static id: number = 0
-  private headers: HeadersInit = { 'Content-Type': 'application/json', 'Authorization': '' }
+  private headers: HeadersInit = { 'Content-Type': 'application/json' }
 
   constructor(url: URL, auth?: Auth) {
     this.url = url
     if (auth?.username && auth.password) {
-      const authorization = btoa(`${auth.username}:${auth.password}`)
-      Object.assign(this.headers, { Authorization: `Basic ${authorization}` })
+      this.headers = {
+        ...this.headers,
+        'Authorization': `Basic ${btoa(`${auth.username}:${auth.password}`)}`,
+      }
     }
   }
 
