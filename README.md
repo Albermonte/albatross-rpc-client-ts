@@ -7,7 +7,7 @@ A fully typed Nimiq RPC client for TypeScript.
 ### Installation
 
 ```bash
-npm install nimiq-rpc-client-ts
+npm install @albermonte/nimiq-rpc-client-ts
 ```
 
 #### NIMIQ_SECRET
